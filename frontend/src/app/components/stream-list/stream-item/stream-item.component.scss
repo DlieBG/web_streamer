@@ -1,0 +1,107 @@
+.card {
+    width: 350px;
+    margin: .5em;
+    margin-bottom: 2em;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+video, .loader, .error{
+    border: 1px solid #444;
+    border-radius: 8px;
+}
+
+video {
+    width: 100%;
+    height: auto;
+}
+
+.overlay {
+    position: absolute;
+    margin-top: -45px;
+    margin-left: 8px;
+}
+
+.live {
+    background-color: rgb(75, 75, 75);
+    color: #fff;
+}
+
+.circle {
+    height: 12px;
+    width: 12px;
+    background-color: rgb(255, 32, 32);
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: .5em;
+    animation: flash 2s infinite ease-in-out;
+}
+
+@keyframes flash {
+    0% {
+        opacity: 1;
+    }
+    64% {
+        opacity: .25;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.viewer {
+    background-color: rgb(0, 174, 255);
+    color: #fff;
+}
+
+mat-chip mat-icon {
+    margin-right: .25em;
+}
+
+.loader, .error {
+    width: 100%;
+    height: calc(350px * 9/16);
+    margin-bottom: 12.5px;
+    display: flex;
+    align-items: center;
+}
+
+.error {
+    border: 1px solid #444;
+    border-radius: 8px;
+}
+
+.error-icon {
+    color: rgb(255, 64, 64);
+}
+
+button mat-icon {
+    vertical-align: middle;
+    margin-right: .25em;
+}
+
+.spinner, mat-icon {
+    margin: 0 auto;
+}
+
+table {
+    width: 100%;
+    margin-bottom: 1em;
+}
+
+td {
+    width: 50%;
+    align-items: center;
+    text-align: center;
+}
+
+.title {
+    margin-top: .5em;
+    margin-left: 1em;
+}
+
+h2 {
+    margin-bottom: .125em;
+}

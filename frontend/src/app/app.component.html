@@ -1,0 +1,20 @@
+<mat-toolbar class="toolbar">
+    <button mat-icon-button routerLink="/">
+        <mat-icon>live_tv</mat-icon>
+    </button>
+    <span>
+        {{ title }}
+    </span>
+    <span class="spacer"></span>
+    <button mat-icon-button routerLink="/new">
+        <mat-icon>add</mat-icon>
+    </button>
+    <button mat-icon-button routerLink="/admin">
+        <mat-icon>settings</mat-icon>
+    </button>
+    <a mat-icon-button href="https://github.com/DlieBG/web_streamer">
+        <mat-icon>question_mark</mat-icon>
+    </a>
+</mat-toolbar>
+
+<router-outlet></router-outlet>

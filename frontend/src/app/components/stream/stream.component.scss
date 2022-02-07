@@ -1,0 +1,39 @@
+.body {
+    margin: 1.75em;
+    margin-left: 2em;
+    margin-right: 2em;
+}
+
+.container {
+    max-width: 1420px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 0 auto;
+}
+
+.video {
+    max-width: calc(100% - 400px);
+}
+
+video {
+    width: 100%;
+    max-height: calc(100vh - 64px - 2em);
+}
+
+.title {
+    margin: 1em;
+}
+
+h1 {
+    color: #fd6f6f;
+}
+
+p {
+    color: #e3d3b4;
+}
+
+.chat {
+    width: calc(400px - 1em);
+    margin-left: 1em;
+}

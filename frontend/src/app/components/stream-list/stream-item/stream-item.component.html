@@ -1,0 +1,47 @@
+<div class="card" [class.pointer]="!loading" (click)="openStream()">
+    <div [hidden]="loading">
+        <video #preview></video>
+        
+        <div class="overlay">
+            <mat-chip-list>
+                <mat-chip class="live"><span class="circle"></span> live</mat-chip>
+                <mat-chip class="viewer"><mat-icon>person_outline</mat-icon> {{ stream.viewerCount }}</mat-chip>
+            </mat-chip-list>
+        </div>
+    </div>
+
+    <div class="loader" *ngIf="loading && !error">
+        <mat-spinner class="spinner" color="accent" strokeWidth="5" diameter="50"></mat-spinner>
+    </div>
+
+    <div class="error" *ngIf="error">
+        <table>
+            <tr>
+                <td>
+                    <table>
+                        <tr>
+                            <td>
+                                <mat-icon class="error-icon">error</mat-icon>
+                            </td>
+                            <td>
+                                <button mat-stroked-button (click)="loadPreview()"><mat-icon>refresh</mat-icon> Neu laden</button>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>
+                        Ein Fehler ist aufgetreten
+                    </p>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="title">
+        <h2>{{ stream.name }}</h2>
+        {{ stream.description }}
+    </div>
+</div>
