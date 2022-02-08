@@ -5,6 +5,7 @@
 export const environment = {
   production: false,
 
+  stream: 'http://10.16.2.3:1845/live',
   api: 'http://10.16.2.3:3000/api'
 };
 

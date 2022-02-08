@@ -8,32 +8,34 @@
     max-width: 1420px;
     display: flex;
     justify-content: center;
-    flex-wrap: wrap;
     margin: 0 auto;
 }
 
 .video {
-    max-width: calc(100% - 400px);
-}
-
-video {
     width: 100%;
-    max-height: calc(100vh - 64px - 2em);
-}
-
-.title {
-    margin: 1em;
-}
-
-h1 {
-    color: #fd6f6f;
-}
-
-p {
-    color: #e3d3b4;
+    min-width: 50vw;
+    max-width: calc(100% - 400px);
 }
 
 .chat {
     width: calc(400px - 1em);
     margin-left: 1em;
+}
+
+@media (orientation: portrait) {
+
+    .container {
+        flex-wrap: wrap;
+    }
+
+    .video {
+        min-width: 100%;
+        max-width: 100%;
+    }    
+
+    .chat {
+        width: 100%;
+        margin-top: 1.5em;
+        margin-left: 0;
+    }
 }

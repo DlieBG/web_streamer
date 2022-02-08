@@ -1,0 +1,54 @@
+<div class="body">
+    
+    <div class="video-container">
+        <div class="container-content">
+
+            <div [hidden]="loading">
+                <video #video [class.playing]="!video.paused" (click)="pause()"></video>
+                
+                <div class="overlay" *ngIf="video.paused">
+                    <button mat-fab color="primary" (click)="play()">
+                        <mat-icon>play_arrow</mat-icon>
+                    </button>
+                </div>
+            </div>
+        
+            <div class="loader" *ngIf="loading && !error">
+                <mat-spinner class="spinner" color="accent" strokeWidth="5" diameter="50"></mat-spinner>
+            </div>
+        
+            <div class="error" *ngIf="error">
+                Fehler...
+            </div>
+
+        </div>
+    </div>
+
+    <div class="title-skeleton" *ngIf="!stream">
+        <div class="badges">
+            <mat-chip-list>
+                <mat-chip><span class="circle"></span> live</mat-chip>
+                <mat-chip><mat-icon>person_outline</mat-icon> 00</mat-chip>
+            </mat-chip-list>
+        </div>
+        <h1>Das ist eine Beispielüberschrift</h1>
+        <p>
+            Wow, du hast den Text im Skeleton entdeckt!!! ;)
+        </p>
+    </div>
+
+    <div class="title" *ngIf="stream">
+        <div class="badges">
+            <mat-chip-list>
+                <button mat-icon-button class="edit" [routerLink]="['/admin', stream._id]" *ngIf="stream.fingerprint == identityService.getFingerprint()"><mat-icon>edit</mat-icon></button>
+                <mat-chip class="live"><span class="circle"></span> live</mat-chip>
+                <mat-chip class="viewer"><mat-icon>person_outline</mat-icon> {{ stream.viewerCount }}</mat-chip>
+            </mat-chip-list>
+        </div>
+        <h1>{{ stream.name }}</h1>
+        <p>
+            {{ stream.description }}
+        </p>
+    </div>
+    
+</div>

@@ -19,7 +19,7 @@ export class Stream {
     key: string;
 
     @Prop({ select: false })
-    viewer: Map<string, Date>;
+    viewers: Map<string, Date>;
 
     @Prop({ default: 0 })
     viewerCount: number;

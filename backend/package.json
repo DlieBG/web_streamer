@@ -28,6 +28,8 @@
     "@nestjs/platform-express": "^8.0.0",
     "@nestjs/platform-socket.io": "^8.2.6",
     "@nestjs/websockets": "^8.2.6",
+    "@types/cron": "^1.7.3",
+    "cron": "^1.8.2",
     "mongoose": "^6.2.0",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",

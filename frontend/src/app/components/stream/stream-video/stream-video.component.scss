@@ -1,0 +1,109 @@
+.video-container {
+    width: 100%;
+    padding-top: 56.25%;
+    max-height: calc(100vh - 64px - 2em);
+    background-color: #363636;
+    position: relative;
+    margin-bottom: 12.5px;
+}
+
+.container-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+video {
+    width: 100%;
+}
+
+.playing {
+    cursor: pointer;
+}
+
+.overlay {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.loader {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.title {
+    margin: 1em;
+}
+
+.badges {
+    float: right;
+}
+
+.live {
+    background-color: rgb(75, 75, 75);
+    color: #fff;
+}
+
+.circle {
+    height: 12px;
+    width: 12px;
+    background-color: rgb(255, 32, 32);
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: .5em;
+    animation: flash 2s infinite ease-in-out;
+}
+
+@keyframes flash {
+    0% {
+        opacity: 1;
+    }
+    64% {
+        opacity: .25;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.viewer {
+    background-color: rgb(0, 150, 219);
+    color: #fff;
+}
+
+mat-chip mat-icon {
+    margin-right: .25em;
+}
+
+.edit {
+    color: #b83577;
+}
+
+h1 {
+    color: #ff7c7c;
+}
+
+p {
+    color: #e3d3b4;
+}
+
+.title-skeleton {
+    margin: 1em;
+}
+
+.title-skeleton mat-chip .circle {
+    background-color: #202020;
+}
+
+.title-skeleton mat-chip, .title-skeleton h1, .title-skeleton p {
+    width: fit-content;
+    background-color: #353535;
+    color: #353535;
+}

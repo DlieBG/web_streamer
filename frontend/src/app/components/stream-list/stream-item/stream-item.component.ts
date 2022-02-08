@@ -2,6 +2,7 @@ import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import Hls from 'hls.js';
 import { Stream } from 'src/app/types/stream.types';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-stream-item',
@@ -33,7 +34,7 @@ export class StreamItemComponent implements OnInit {
       maxBufferLength: 1
     });
 
-    hls.loadSource('http://10.16.2.3:81/live/' + this.stream._id + '.m3u8');
+    hls.loadSource(`${environment.stream}/${this.stream._id }.m3u8`);
     hls.attachMedia(this.preview.nativeElement);
 
     this.preview.nativeElement.addEventListener('loadedmetadata', () => {

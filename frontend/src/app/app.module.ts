@@ -19,6 +19,8 @@ import { StreamCreateComponent } from './components/stream-create/stream-create.
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { StreamAdminListComponent } from './components/stream-admin-list/stream-admin-list.component';
 import { StreamItemComponent } from './components/stream-list/stream-item/stream-item.component';
+import { StreamVideoComponent } from './components/stream/stream-video/stream-video.component';
+import { StreamChatComponent } from './components/stream/stream-chat/stream-chat.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import { StreamItemComponent } from './components/stream-list/stream-item/stream
     StreamEditComponent,
     StreamCreateComponent,
     StreamAdminListComponent,
-    StreamItemComponent
+    StreamItemComponent,
+    StreamVideoComponent,
+    StreamChatComponent
   ],
   imports: [
     BrowserModule,

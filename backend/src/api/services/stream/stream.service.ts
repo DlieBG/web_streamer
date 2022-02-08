@@ -1,4 +1,4 @@
-import { Get, Injectable } from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { StreamCreateDto, StreamUpdateDto } from 'src/api/dtos/stream.dto';
@@ -16,8 +16,8 @@ export class StreamService {
         return this.streamModel.find();
     }
 
-    async findOne(key: string): Promise<Stream> {
-        return this.streamModel.findById(key);
+    async findOne(id: string): Promise<Stream> {
+        return this.streamModel.findById(id);
     }
 
     async create(stream: StreamCreateDto): Promise<Stream> {
@@ -29,15 +29,17 @@ export class StreamService {
         }).save();
     }
     
-    async update(key: string, stream: StreamUpdateDto): Promise<Stream> {
-        return this.streamModel.findByIdAndUpdate(key, {
-            name: stream.name,
-            description: stream.description
-        });
+    async update(id: string, key: string, stream: StreamUpdateDto): Promise<Stream> {
+        if(await this.validate(id, key))
+            return this.streamModel.findByIdAndUpdate(id, {
+                name: stream.name,
+                description: stream.description
+            });
     }
 
-    async delete(key: string): Promise<Stream> {
-        return this.streamModel.findByIdAndDelete(key);
+    async delete(id: string, key: string): Promise<Stream> {
+        if(await this.validate(id, key))
+            return this.streamModel.findByIdAndDelete(id);
     }
 
     async validate(id: string, key: string): Promise<boolean> {

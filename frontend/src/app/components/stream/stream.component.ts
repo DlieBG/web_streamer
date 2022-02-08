@@ -16,11 +16,6 @@ export class StreamComponent implements OnInit {
   stream$!: Observable<Stream>;
   stream!: Stream;
 
-  @ViewChild('video', { static: true }) video!: ElementRef<any>;
-
-  loading: boolean = true;
-  error: boolean = false;
-
   constructor(
     private route: ActivatedRoute,
     private streamService: StreamService
@@ -39,41 +34,8 @@ export class StreamComponent implements OnInit {
     this.stream$.subscribe(
       (stream) => {
         this.stream = stream;
-        this.loadVideo();
       }
     );
-  }
-
-  loadVideo() {
-    let hls = new Hls({
-      lowLatencyMode: true,
-      autoStartLoad: true
-    });
-
-    hls.loadSource('http://10.16.2.3:81/live/' + this.stream._id + '.m3u8');
-    hls.attachMedia(this.video.nativeElement);
-
-    this.video.nativeElement.addEventListener('loadedmetadata', () => {
-      this.loading = false;
-      this.error = false;
-    });
-
-    setTimeout(() => {
-      if(this.loading)
-        this.error = true;
-    }, 2500);
-  }
-
-  test() {
-    console.log(this.video.nativeElement.currentTime);
-    console.log(this.video.nativeElement.duration);
-    console.log(this.video.nativeElement);
-    this.video.nativeElement.currentTime = this.video.nativeElement.duration - 10;
-    this.video.nativeElement.play();
-
-    Fingerprint.load().then(fp => fp.get()).then(result => {
-      console.log(result.visitorId);
-    });
   }
 
 }

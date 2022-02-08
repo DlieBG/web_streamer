@@ -1,23 +1,15 @@
 <!-- <video #video></video>
 <button (click)="test()">Test</button> -->
-<div class="body">
+<div class="body" *ngIf="stream$">
 
     <div class="container">
 
         <div class="video">
-            <video #video></video>
-            <div class="title">
-                <h1>{{ stream.name }}</h1>
-                <p>
-                    {{ stream.description }}
-                </p>
-            </div>
+            <app-stream-video [stream$]="stream$"></app-stream-video>
         </div>
 
         <div class="chat">
-            <mat-card>
-                Hi
-            </mat-card>
+            <app-stream-chat [stream]="stream"></app-stream-chat>
         </div>
 
     </div>
