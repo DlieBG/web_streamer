@@ -1,6 +1,7 @@
 import { Body, Controller, Delete, Get, HttpStatus, Param, Post, Put, Query, Res } from '@nestjs/common';
 import { Response } from 'express';
 import { StreamCreateDto, StreamUpdateDto } from 'src/api/dtos/stream.dto';
+import { SynchronizationGateway } from 'src/api/gateways/synchronization/synchronization.gateway';
 import { StreamService } from 'src/api/services/stream/stream.service';
 import { ViewerService } from 'src/api/services/viewer/viewer.service';
 import { Stream } from 'src/db/schemas/stream.schema';
@@ -10,7 +11,8 @@ export class StreamController {
 
     constructor(
         private streamService: StreamService,
-        private viewerService: ViewerService
+        private viewerService: ViewerService,
+        private synchronizationGateway: SynchronizationGateway
     ) { }
 
     @Get()
@@ -52,6 +54,16 @@ export class StreamController {
     async viewerPing(@Param('id') id: string, @Query('fingerprint') fingerprint: string = ''): Promise<Stream> {
         this.viewerService.viewerPing(id, fingerprint);
         return this.findOne(id);
+    }
+
+    @Get(':id/synchronize')
+    async synchronize(@Param('id') id: string, @Query('key') key: string, @Query('time') time: number): Promise<boolean> {
+        const status = await this.streamService.validate(id, key);
+
+        if(status)
+            this.synchronizationGateway.synchronize(id, time);
+
+        return status;
     }
 
 }

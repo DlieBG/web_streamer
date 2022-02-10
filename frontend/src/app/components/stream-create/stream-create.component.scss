@@ -1,0 +1,51 @@
+.body {
+    display: flex;
+    justify-content: center;
+    margin: 1em;
+}
+
+.card {
+    max-width: 850px;
+    width: 100%;
+    border: 1px solid #444;
+    border-radius: 8px;
+    padding: 1em;
+}
+
+table {
+    width: 100%;
+}
+
+tr {
+    
+}
+
+td {
+    width: 50%;
+    padding: .5em;
+}
+
+mat-form-field {
+    width: 100%;
+}
+
+.info {
+    border: 1px solid yellow;
+    background-color: rgba(255, 255, 0, 0.075);
+    box-shadow: 0 0 5px rgba(255, 255, 0, .5);
+    border-radius: 4px;
+    padding: 1em;
+}
+
+.p {
+    margin-bottom: .5em;
+}
+
+.error {
+    color: rgba(255, 55, 55);
+}
+
+.create {
+    color: rgb(255, 70, 70);
+    border-color: rgb(255, 20, 20);
+}

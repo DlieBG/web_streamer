@@ -1,6 +1,4 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import Hls from 'hls.js';
-import Fingerprint from '@fingerprintjs/fingerprintjs'
 import { Observable } from 'rxjs';
 import { Stream } from 'src/app/types/stream.types';
 import { StreamService } from 'src/app/services/stream/stream.service';

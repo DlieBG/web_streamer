@@ -1,1 +1,38 @@
-<p>stream-create works!</p>
+<div class="body">
+    <div class="card">
+        <h1>Neuen Stream erstellen</h1>
+
+        <table>
+            <tr>
+                <td>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Stream Name</mat-label>
+                        <input matInput placeholder="GNTM 2022 - Folge 29" [(ngModel)]="stream.name">
+                        <mat-icon matSuffix>title</mat-icon>
+                    </mat-form-field>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Stream Beschreibung</mat-label>
+                        <textarea matInput [(ngModel)]="stream.description"></textarea>
+                        <mat-icon matSuffix>description</mat-icon>
+                    </mat-form-field>
+
+                    <p class="error" *ngIf="error">
+                        Fehler! Stream konnte nicht erstellt werden.
+                    </p>
+                </td>
+                <td>
+                    <div class="info">
+                        <h2>Hey du!</h2>
+                        <p>
+                            Da du jetzt ein echter Streamer bist, musst du einige Dinge beachten!<br class="p">
+                            Passe gut auf deinen Streaming-Key auf und gebe ihn niemals weiter.<br>
+                            Überlege dir gut, was du ins Internet stellst. Wir vergessen nichts und vertreten auch deine Fahrlässigkeiten und Vorsätze nicht!
+                        </p>
+                    </div>
+                </td>
+            </tr>
+        </table>
+
+        <button mat-stroked-button class="create" (click)="createStream()">Stream erstellen</button>
+    </div>
+</div>

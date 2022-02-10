@@ -4,7 +4,7 @@
         <div class="container-content">
 
             <div [hidden]="loading">
-                <video #video [class.playing]="!video.paused" (click)="pause()"></video>
+                <video #video [class.playing]="!video.paused" (click)="pause()" controls></video>
                 
                 <div class="overlay" *ngIf="video.paused">
                     <button mat-fab color="primary" (click)="play()">
@@ -44,6 +44,8 @@
                 <mat-chip class="live"><span class="circle"></span> live</mat-chip>
                 <mat-chip class="viewer"><mat-icon>person_outline</mat-icon> {{ stream.viewerCount }}</mat-chip>
             </mat-chip-list>
+
+            <button mat-flat-button class="synchronize" color="accent" (click)="synchronize()" *ngIf="stream.fingerprint == identityService.getFingerprint()">Synchronisieren</button>
         </div>
         <h1>{{ stream.name }}</h1>
         <p>

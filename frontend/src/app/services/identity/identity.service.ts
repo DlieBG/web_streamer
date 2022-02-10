@@ -26,4 +26,12 @@ export class IdentityService {
   getFingerprint(): string {
     return this.fingerprint;
   }
+
+  setKey(id: string, key: string) {
+    localStorage.setItem(`stream ${id}`, key);
+  }
+
+  getKey(id: string): string {
+    return localStorage.getItem(`stream ${id}`) || '';
+  }
 }

@@ -9,6 +9,10 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatChipsModule } from '@angular/material/chips';
+import { MatFormFieldModule } from '@angular/material/form-field'; 
+import { MatInputModule } from '@angular/material/input';
+import { MatDialogModule } from '@angular/material/dialog';
+import { ClipboardModule } from '@angular/cdk/clipboard'; 
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -21,6 +25,7 @@ import { StreamAdminListComponent } from './components/stream-admin-list/stream-
 import { StreamItemComponent } from './components/stream-list/stream-item/stream-item.component';
 import { StreamVideoComponent } from './components/stream/stream-video/stream-video.component';
 import { StreamChatComponent } from './components/stream/stream-chat/stream-chat.component';
+import { StreamSecretsComponent } from './components/stream-create/stream-secrets/stream-secrets.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +37,8 @@ import { StreamChatComponent } from './components/stream/stream-chat/stream-chat
     StreamAdminListComponent,
     StreamItemComponent,
     StreamVideoComponent,
-    StreamChatComponent
+    StreamChatComponent,
+    StreamSecretsComponent
   ],
   imports: [
     BrowserModule,
@@ -46,6 +52,10 @@ import { StreamChatComponent } from './components/stream/stream-chat/stream-chat
     MatCardModule,
     MatProgressSpinnerModule,
     MatChipsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatDialogModule,
+    ClipboardModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

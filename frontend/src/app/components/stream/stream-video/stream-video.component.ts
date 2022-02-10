@@ -4,9 +4,9 @@ import Hls from 'hls.js';
 import { Observable } from 'rxjs';
 import { StreamService } from 'src/app/services/stream/stream.service';
 import { CronJob } from 'cron';
-import { ThisReceiver } from '@angular/compiler';
 import { IdentityService } from 'src/app/services/identity/identity.service';
 import { environment } from 'src/environments/environment';
+import { io, Socket } from 'socket.io-client';
 
 @Component({
   selector: 'app-stream-video',
@@ -23,6 +23,7 @@ export class StreamVideoComponent implements OnInit {
   loading: boolean = true;
   error: boolean = false;
   
+  socket!: Socket;
   cron!: CronJob;
 
   constructor(
@@ -35,6 +36,7 @@ export class StreamVideoComponent implements OnInit {
       (stream) => {
         this.stream = stream;
         this.loadVideo();
+        this.subscribe(stream._id);
 
         this.cron = new CronJob('*/10 * * * * *', () => this.viewerPing(stream._id));
         this.cron.start();
@@ -44,6 +46,18 @@ export class StreamVideoComponent implements OnInit {
 
   ngOnDestroy(): void {
     this.cron.stop();
+  }
+
+  subscribe(id: string) {
+    this.socket = io(environment.ws, {
+      path: '/ws'
+    });
+
+    this.socket.on('connect', () => {
+      this.socket.emit('subscribe', id);
+    });
+
+    this.socket.on('synchronize', this.onSynchronize.bind(this));
   }
 
   viewerPing(id: string) {
@@ -83,12 +97,20 @@ export class StreamVideoComponent implements OnInit {
   }
 
   play() {
-    this.video.nativeElement.currentTime = this.video.nativeElement.duration - 10;
+    this.video.nativeElement.currentTime = this.video.nativeElement.duration - 5;
     this.video.nativeElement.play();
   }
 
   pause() {
     this.video.nativeElement.pause();
+  }
+
+  synchronize() {
+    this.streamService.synchronize(this.stream._id, 0).subscribe();
+  }
+
+  onSynchronize(time: number) {
+    this.play();
   }
 
   test() {
