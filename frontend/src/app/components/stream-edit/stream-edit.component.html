@@ -1,1 +1,45 @@
-<p>stream-edit works!</p>
+<div class="body" *ngIf="key">
+    <div class="card" *ngIf="stream">
+        <h1>Stream bearbeiten</h1>
+
+        <table>
+            <tr>
+                <td>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Stream Name</mat-label>
+                        <input matInput placeholder="GNTM 2022 - Folge 29" [(ngModel)]="stream.name">
+                        <mat-icon matSuffix>title</mat-icon>
+                    </mat-form-field>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Stream Beschreibung</mat-label>
+                        <textarea matInput [(ngModel)]="stream.description"></textarea>
+                        <mat-icon matSuffix>description</mat-icon>
+                    </mat-form-field>
+
+                    <p class="error" *ngIf="error">
+                        Fehler! Stream konnte nicht aktualisiert werden.
+                    </p>
+                </td>
+                <td>
+                    <div class="info">
+                        <h2>Und? Wie ist es?</h2>
+                        <p>
+                            Du als großer Streamer im großen weiten Internet. <span class="emoji">🤩</span> <br class="p">
+                            Alles klar auf der Andreas Doria, oder gibt es noch Kleinigkeiten zu verbessern?<br>
+                            Falls das jemals wer lesen sollte, dann schreibe er mir mal ne Email: <a href="mailto:mail@benedikt.schwering.de">mail@benedikt-schwering.de</a> <span class="emoji">😘</span>
+                        </p>
+                    </div>
+                </td>
+            </tr>
+        </table>
+
+        <button mat-stroked-button class="update" (click)="updateStream()">Stream aktualisieren</button>
+        <button mat-stroked-button class="delete" (click)="deleteStream()">Stream löschen</button>
+    </div>
+
+    <div class="loading" *ngIf="!stream">
+        <div class="spinner">
+            <mat-spinner color="accent" strokeWidth="5" diameter="50"></mat-spinner>
+        </div>
+    </div>
+</div>

@@ -13,6 +13,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ClipboardModule } from '@angular/cdk/clipboard'; 
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -26,6 +27,7 @@ import { StreamItemComponent } from './components/stream-list/stream-item/stream
 import { StreamVideoComponent } from './components/stream/stream-video/stream-video.component';
 import { StreamChatComponent } from './components/stream/stream-chat/stream-chat.component';
 import { StreamSecretsComponent } from './components/stream-create/stream-secrets/stream-secrets.component';
+import { NoAccessComponent } from './components/stream-edit/no-access/no-access.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,8 @@ import { StreamSecretsComponent } from './components/stream-create/stream-secret
     StreamItemComponent,
     StreamVideoComponent,
     StreamChatComponent,
-    StreamSecretsComponent
+    StreamSecretsComponent,
+    NoAccessComponent
   ],
   imports: [
     BrowserModule,
@@ -56,6 +59,7 @@ import { StreamSecretsComponent } from './components/stream-create/stream-secret
     MatInputModule,
     MatDialogModule,
     ClipboardModule,
+    MatSnackBarModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

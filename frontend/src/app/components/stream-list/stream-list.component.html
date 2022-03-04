@@ -3,5 +3,9 @@
     
     <div class="list">
         <app-stream-item *ngFor="let stream of streams;" [stream]="stream"></app-stream-item>
+
+        <div class="empty" *ngIf="streams.length === 0">
+            <p>Noch keine Livestreams gestartet... <span class="emoji">🔍</span></p>
+        </div>
     </div>
 </div>

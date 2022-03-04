@@ -1,0 +1,79 @@
+.body {
+    display: flex;
+    justify-content: center;
+    margin: 1em;
+}
+
+.card {
+    max-width: 850px;
+    width: 100%;
+    border: 1px solid #444;
+    border-radius: 8px;
+    padding: 1em;
+}
+
+table {
+    width: 100%;
+}
+
+td {
+    width: 50%;
+    padding: .5em;
+}
+
+mat-form-field {
+    width: 100%;
+}
+
+.info {
+    border: 1px solid rgb(0, 255, 13);
+    background-color: rgba(0, 255, 13, 0.075);
+    box-shadow: 0 0 5px rgba(0, 255, 13, .5);
+    border-radius: 4px;
+    padding: 1em;
+}
+
+.p {
+    margin-bottom: .5em;
+}
+
+.emoji {
+    font-size: 1.75em;
+    margin-left: .25em;
+    vertical-align: middle;
+}
+
+a {
+    color: #fd9898;
+}
+
+a:visited {
+    color: #fd9898;
+}
+
+.error {
+    color: rgba(255, 55, 55);
+}
+
+.update {
+    color: rgb(85, 187, 255);
+    border-color: rgb(0, 140, 255);
+}
+
+.delete {
+    color: rgb(255, 70, 70);
+    border-color: rgb(255, 20, 20);
+    margin-left: 1em;
+}
+
+.loading {
+    height: calc(100vh - 64px - 2em);
+}
+
+.spinner {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    height: 100%;
+}
