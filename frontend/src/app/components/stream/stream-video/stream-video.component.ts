@@ -75,6 +75,9 @@ export class StreamVideoComponent implements OnInit {
   }
 
   loadVideo() {
+    this.loading = true;
+    this.error = false
+    
     let hls = new Hls({
       lowLatencyMode: true,
       autoStartLoad: true
@@ -97,7 +100,7 @@ export class StreamVideoComponent implements OnInit {
   }
 
   play() {
-    this.video.nativeElement.currentTime = this.video.nativeElement.duration - 5;
+    this.video.nativeElement.currentTime = this.video.nativeElement.duration - 10;
     this.video.nativeElement.play();
   }
 
@@ -111,14 +114,6 @@ export class StreamVideoComponent implements OnInit {
 
   onSynchronize(time: number) {
     this.play();
-  }
-
-  test() {
-    // console.log(this.video.nativeElement.currentTime);
-    // console.log(this.video.nativeElement.duration);
-    // console.log(this.video.nativeElement);
-    // this.video.nativeElement.currentTime = this.video.nativeElement.duration - 10;
-    // this.video.nativeElement.play();
   }
 
 }

@@ -18,7 +18,12 @@
             </div>
         
             <div class="error" *ngIf="error">
-                Fehler...
+                <div>
+                    <mat-icon class="error-icon">error</mat-icon>
+                    Fehler beim laden
+                </div>
+
+                <button mat-flat-button color="accent" (click)="loadVideo()"><mat-icon>refresh</mat-icon> Neu laden</button>
             </div>
 
         </div>

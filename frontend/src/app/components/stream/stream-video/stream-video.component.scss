@@ -38,6 +38,32 @@ video {
     justify-content: center;
 }
 
+.error {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+    color: #fbbf94;
+    font-size: 1.1em;
+}
+
+.error-icon {
+    transform: scale(2);
+    vertical-align: bottom;
+    margin-right: 1.25em;
+    color: #fb6565;
+}
+
+button mat-icon {
+    vertical-align: middle;
+    margin-right: .25em;
+}
+
+.error button {
+    margin-top: 2em;
+}
+
 .title {
     margin: 1em;
 }

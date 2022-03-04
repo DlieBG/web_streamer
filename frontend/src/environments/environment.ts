@@ -5,9 +5,9 @@
 export const environment = {
   production: false,
 
-  stream: 'http://10.16.2.3:82/live',
-  api: 'http://10.16.2.3:3000/api',
-  ws: 'http://10.16.2.3:3000'
+  stream: 'http://10.17.2.3:82/live',
+  api: 'http://10.17.2.3:3000/api',
+  ws: 'http://10.17.2.3:3000'
 };
 
 /*
